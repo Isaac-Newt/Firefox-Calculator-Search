@@ -2,7 +2,7 @@
   "applications": {
     "gecko": {
       "id": "calculator-search@isaac-newt",
-       "strict_min_version": "57.0"
+       "strict_min_version": "52.0"
      }
   },
 
