@@ -1,3 +1,9 @@
+/*
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+
 // Provide help text to the user.
 browser.omnibox.setDefaultSuggestion({
   description: `Get results for math queries (e.g. 5 * 9 = 45)`
@@ -14,7 +20,11 @@ browser.omnibox.onInputChanged.addListener((text, addSuggestions) => {
   addSuggestions(suggestion);
 });
 
-// This works, from https://stackoverflow.com/questions/6479236/calculate-string-value-in-javascript-not-using-eval
+/*
+ * This code from https://stackoverflow.com/a/6482814/8373676
+ *
+ * Credit to vol7ron, thanks :)
+ */
 function calculate(input) {
 
   var f = {
