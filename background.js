@@ -24,6 +24,9 @@ browser.omnibox.onInputChanged.addListener((text, addSuggestions) => {
  * This code from https://stackoverflow.com/a/6482814/8373676
  *
  * Credit to vol7ron, thanks :)
+ *
+ * Code initially under CC BY-SA 3.0 as per SO's submission policy
+ * I think I'm doing this right.
  */
 function calculate(input) {
 
@@ -50,7 +53,8 @@ function calculate(input) {
     ]
   ];
 
-  input = input.replace(/[^0-9%^*\/()\-+.]/g, ''); // clean up unnecessary characters
+  // clean up unnecessary characters
+  input = input.replace(/[^0-9%^*\/()\-+.]/g, '');
 
   var output;
   for (var i = 0, n = f.ooo.length; i < n; i++) {
