@@ -5,12 +5,12 @@
  */
 
 // Provide help text to the user.
-browser.omnibox.setDefaultSuggestion({
+chrome.omnibox.setDefaultSuggestion({
   description: `Get results for math queries (e.g. 5 * 9 = 45)`
 });
 
 // Update suggestions with user input
-browser.omnibox.onInputChanged.addListener((text, addSuggestions) => {
+chrome.omnibox.onInputChanged.addListener((text, addSuggestions) => {
   // Need to create an array, even though we're only gonna have 1 answer
   var suggestion = [];
   answer = calculate(text);
