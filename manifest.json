@@ -1,11 +1,4 @@
 {
-  "applications": {
-    "gecko": {
-      "id": "calculator-search@isaac-newt",
-       "strict_min_version": "52.0"
-     }
-  },
-
   "manifest_version": 2,
   "name": "Calculator Search",
   "version": "0.0.1",
