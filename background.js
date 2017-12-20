@@ -26,11 +26,13 @@ browser.omnibox.onInputChanged.addListener((text, addSuggestions) => {
  * Credit to vol7ron, thanks :)
  *
  * Code initially under CC BY-SA 3.0 as per SO's submission policy
- * I think I'm doing this right.
  */
+
+// Define calculating function
 function calculate(input) {
 
-  var f = {
+  // Define operators
+  var operators = {
     add: '+',
     sub: '-',
     div: '/',
@@ -40,27 +42,29 @@ function calculate(input) {
   };
 
   // Create array for Order of Operation and precedence
-  f.ooo = [
+  operators.ooo = [
     [
-      [f.mlt],
-      [f.div],
-      [f.mod],
-      [f.exp]
+      [operators.mlt],
+      [operators.div],
+      [operators.mod],
+      [operators.exp]
     ],
     [
-      [f.add],
-      [f.sub]
+      [operators.add],
+      [operators.sub]
     ]
   ];
 
-  // clean up unnecessary characters
+  // Clean up unnecessary characters
   input = input.replace(/[^0-9%^*\/()\-+.]/g, '');
 
   var output;
-  for (var i = 0, n = f.ooo.length; i < n; i++) {
+
+  // Loop to find operators from the input
+  for (var i = 0, n = operators.ooo.length; i < n; i++) {
 
     // Regular Expression to look for operators between floating numbers or integers
-    var re = new RegExp('(\\d+\\.?\\d*)([\\' + f.ooo[i].join('\\') + '])(\\d+\\.?\\d*)');
+    var re = new RegExp('(\\d+\\.?\\d*)([\\' + operators.ooo[i].join('\\') + '])(\\d+\\.?\\d*)');
     re.lastIndex = 0; // take precautions and reset re starting pos
 
     // Loop while there is still calculation for level of precedence
@@ -72,28 +76,30 @@ function calculate(input) {
     }
   }
 
+  // This is the string of operators (I think)
   return output;
 
+  // This part does the actual calculating
   function _calculate(a, op, b) {
     a = a * 1;
     b = b * 1;
     switch (op) {
-      case f.add:
+      case operators.add:
         return a + b;
         break;
-      case f.sub:
+      case operators.sub:
         return a - b;
         break;
-      case f.div:
+      case operators.div:
         return a / b;
         break;
-      case f.mlt:
+      case operators.mlt:
         return a * b;
         break;
-      case f.mod:
+      case operators.mod:
         return a % b;
         break;
-      case f.exp:
+      case operators.exp:
         return Math.pow(a, b);
         break;
       default:
