@@ -44,10 +44,10 @@ function calculate(input) {
   // Create array for Order of Operation and precedence
   operators.ooo = [
     [
-      [operators.mlt],
+      [operators.exp],
       [operators.div],
       [operators.mod],
-      [operators.exp]
+      [operators.mlt]
     ],
     [
       [operators.add],
