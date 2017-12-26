@@ -41,12 +41,20 @@ function calculate(input) {
     exp: '^'
   };
 
-  // Create array for Order of Operation and precedence
+  /*
+   * Create array for Order of Operation and precedence
+   * This works by checking in chunks by the nested arrays.
+   * Ex: epx and mod come before mult/div, which are before
+   * add/sub.  However, order within these nested arrays is
+   * irrelivant.
+   */
   operators.ooo = [
     [
       [operators.exp],
-      [operators.div],
       [operators.mod],
+    ],
+    [
+      [operators.div],
       [operators.mlt]
     ],
     [
