@@ -89,8 +89,10 @@ function calculate(input) {
 
   // This part does the actual calculating
   function _calculate(a, op, b) {
+    // Not sure what this is for ¯\_(ツ)_/¯
     a = a * 1;
     b = b * 1;
+    // Switch for executing operations
     switch (op) {
       case operators.add:
         return a + b;
